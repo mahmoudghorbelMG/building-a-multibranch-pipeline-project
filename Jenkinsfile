@@ -17,7 +17,9 @@ pipeline {
                     containers:
                     - name: node
                       image: node:6-alpine
-                      args: '-p 3000:3000 -p 5000:5000'
+                      ports:
+                      - containerPort: 3000 
+                      - containerPort: 5000
                       tty: true
                 '''
         }
