@@ -30,12 +30,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                container('node') {
+                    sh 'npm install'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                container('node') {
+                    sh './jenkins/scripts/test.sh'
+                }
             }
         }
     }
